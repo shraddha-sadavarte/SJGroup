@@ -49,39 +49,37 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE BUTTON */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-orange-500 hover:text-orange-400 transition-colors"
+              className="text-orange-500 hover:text-orange-400 transition"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-slate-800 border-t border-slate-700">
-          <div className="px-4 pt-4 pb-6 space-y-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="block text-gray-300 hover:text-orange-500 hover:bg-slate-700 px-3 py-2 rounded-md font-medium transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-
-            <button className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
-              Get Quote
-            </button>
+        {/* MOBILE MENU */}
+        {isOpen && (
+          <div className="md:hidden bg-slate-800 border-t border-slate-700">
+            <div className="px-4 py-4 space-y-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block text-gray-300 hover:text-orange-500 px-3 py-2 rounded-md transition"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <button className="w-full mt-3 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition">
+                Get Quote
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+    </div>
     </nav>
   );
 }
