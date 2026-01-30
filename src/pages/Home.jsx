@@ -1,0 +1,151 @@
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
+export default function Home() {
+  return (
+    <div className="w-full">
+
+      {/* ================= HERO SECTION ================= */}
+      <section className="w-full min-h-[90vh] md:min-h-screen flex items-center justify-center px-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-6xl font-bold leading-tight"
+          >
+            Building the Future with
+            <span className="text-orange-500"> Excellence & Innovation</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-6 text-gray-300 text-lg md:text-xl"
+          >
+            SJ Groups India delivers high-quality infrastructure, construction,
+            and development solutions with precision and reliability.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-8"
+          >
+            <button className="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
+              Explore Projects
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= COMPANY HIGHLIGHTS ================= */}
+      <section className="py-20 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+
+          {[
+            { number: "15+", title: "Years of Experience" },
+            { number: "200+", title: "Projects Completed" },
+            { number: "100%", title: "Client Satisfaction" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+            >
+              <h2 className="text-4xl font-bold text-orange-500">
+                {item.number}
+              </h2>
+              <p className="mt-3 text-gray-300">{item.title}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= FEATURED PROJECTS PREVIEW ================= */}
+      <section className="py-20 px-6 bg-slate-950">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Our <span className="text-orange-500">Featured Projects</span>
+          </h2>
+          <p className="mt-4 text-gray-400">
+            Delivering excellence across multiple industries.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+
+            {[1, 2, 3].map((project) => (
+              <motion.div
+                key={project}
+                whileHover={{ y: -10 }}
+                className="bg-slate-800 rounded-xl overflow-hidden shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+              >
+                <div className="h-48 bg-gradient-to-r from-slate-700 to-slate-600"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold">
+                    Infrastructure Project {project}
+                  </h3>
+                  <p className="text-gray-400 mt-2">
+                    High-quality execution with modern engineering standards.
+                  </p>
+                  <button className="mt-4 flex items-center text-orange-500 hover:text-orange-400 transition">
+                    View Details <ArrowRight size={18} className="ml-2" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* ================= WHY CHOOSE US ================= */}
+      <section className="py-20 bg-slate-800 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Why Choose <span className="text-orange-500">SJ Groups India?</span>
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            <div className="bg-slate-900 p-8 rounded-xl hover:scale-105 transition-transform duration-300">
+              <h3 className="text-xl font-semibold text-orange-500">
+                Quality Assurance
+              </h3>
+              <p className="text-gray-400 mt-3">
+                We follow strict quality control measures to ensure excellence
+                in every project we deliver.
+              </p>
+            </div>
+
+            <div className="bg-slate-900 p-8 rounded-xl hover:scale-105 transition-transform duration-300">
+              <h3 className="text-xl font-semibold text-orange-500">
+                Timely Delivery
+              </h3>
+              <p className="text-gray-400 mt-3">
+                Our experienced team ensures projects are completed on schedule
+                without compromising quality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CALL TO ACTION ================= */}
+      <section className="py-20 px-6 text-center bg-orange-500 text-white">
+        <h2 className="text-3xl md:text-4xl font-bold">
+          Ready to Start Your Next Project?
+        </h2>
+        <p className="mt-4 text-gray-700">
+          Partner with SJ Groups India for reliable and innovative solutions.
+        </p>
+
+        <button className="mt-8 bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            Get a Free Consultation
+        </button>
+
+      </section>
+    </div>
+  );
+}
