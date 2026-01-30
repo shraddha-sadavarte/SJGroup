@@ -14,42 +14,48 @@ export default function Navbar() {
     { name: "Contact", path: "#" },
   ];
 
-  return (
-    <nav className="w-full sticky top-0 z-50 shadow-lg bg-gradient-to-r from-slate-200 via-slate-500 to-slate-900 ">
+  const linkStyle =
+    "relative text-gray-200 font-medium transition after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full hover:text-orange-500";
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 ">
+  return (
+    <nav className="sticky top-0 z-50 w-full bg-gradient-to-r from-slate-900 via-slate-800 to-charcoal shadow-lg">
+      
+      {/* Top Accent Line */}
+      <div className="h-1 bg-orange-500" />
+
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
           <div className="flex items-center">
             <img
               src={logo}
-              alt="Logo"
+              alt="SJ Group Logo"
               className="h-10 w-auto object-contain"
             />
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8 ">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-300 hover:text-orange-500 transition-colors duration-300 font-medium"
+                className={linkStyle}
               >
                 {link.name}
               </Link>
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA */}
           <div className="hidden md:block">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-300">
+            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition shadow-md hover:shadow-orange-500/30">
               Get Quote
             </button>
           </div>
 
-          {/* MOBILE BUTTON */}
+          {/* Mobile Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -60,18 +66,19 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* MOBILE MENU */}
+        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-slate-800 border-t border-slate-700">
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="block text-gray-300 hover:text-orange-500 px-3 py-2 rounded-md transition"
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <button className="w-full mt-3 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition">
                 Get Quote
@@ -79,7 +86,7 @@ export default function Navbar() {
             </div>
           </div>
         )}
-    </div>
+      </div>
     </nav>
   );
 }
