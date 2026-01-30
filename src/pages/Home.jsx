@@ -1,7 +1,28 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import project1 from "../assets/images/project1.png";
+import project2 from "../assets/images/project2.png";
+import project3 from "../assets/images/project3.png"; 
 
 export default function Home() {
+   const projects = [
+    {
+      title: "Commercial Complex",
+      desc: "Modern commercial building with advanced infrastructure planning.",
+      image: project1,
+        
+    },
+    {
+      title: "Residential Township",
+      desc: "Large-scale residential development with premium amenities.",
+      image: project2,
+    },
+    {
+      title: "Industrial Infrastructure",
+      desc: "High-quality industrial construction with safety compliance.",
+      image: project3,
+    },
+  ];
   return (
     <div className="w-full">
 
@@ -65,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* ================= FEATURED PROJECTS PREVIEW ================= */}
-      <section className="py-20 px-6 bg-slate-950">
+        <section className="py-20 px-6 bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold">
             Our <span className="text-orange-500">Featured Projects</span>
@@ -75,28 +96,35 @@ export default function Home() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
-
-            {[1, 2, 3].map((project) => (
+            {projects.map((project, index) => (
               <motion.div
-                key={project}
+                key={index}
                 whileHover={{ y: -10 }}
-                className="bg-slate-800 rounded-xl overflow-hidden shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+                className="bg-slate-800 rounded-xl overflow-hidden shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
               >
-                <div className="h-48 bg-gradient-to-r from-slate-700 to-slate-600"></div>
-                <div className="p-6">
+                {/* Image */}
+                <div className="h-52 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6 text-left">
                   <h3 className="text-xl font-semibold">
-                    Infrastructure Project {project}
+                    {project.title}
                   </h3>
                   <p className="text-gray-400 mt-2">
-                    High-quality execution with modern engineering standards.
+                    {project.desc}
                   </p>
-                  <button className="mt-4 flex items-center text-orange-500 hover:text-orange-400 transition">
+                  <button className="mt-4 inline-flex items-center text-orange-500 hover:text-orange-400 transition font-medium">
                     View Details <ArrowRight size={18} className="ml-2" />
                   </button>
                 </div>
               </motion.div>
             ))}
-
           </div>
         </div>
       </section>
