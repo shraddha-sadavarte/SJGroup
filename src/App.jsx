@@ -4,6 +4,8 @@ import Footer from './components/Footer.jsx'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home.jsx'
+import Projects from './pages/Projects.jsx'
+import ProjectDetails from './pages/ProjectDetails.jsx'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
         </Routes>
         <Footer />
       </div>
