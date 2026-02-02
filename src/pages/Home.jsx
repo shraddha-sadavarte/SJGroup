@@ -27,7 +27,8 @@ export default function Home() {
     <div className="w-full">
 
       {/* ================= HERO SECTION ================= */}
-    <section className="relative w-full min-h-[100svh] overflow-hidden flex items-center justify-center">
+    <motion.section className="relative w-full min-h-[100svh] overflow-hidden flex items-center justify-center"
+    initial={{opacity:0, y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration:1}} viewport={{once:true, amount:0.3}}>
 
       {/* ===== Background Video ===== */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -81,10 +82,11 @@ export default function Home() {
         </motion.div>
 
       </div>
-    </section>
+    </motion.section>
 
       {/* ================= COMPANY HIGHLIGHTS ================= */}
-      <section className="py-20 bg-slate-900">
+      <motion.section className="py-20 bg-slate-900"
+      initial={{opacity:0, y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration:1}} viewport={{once:true, amount:0.3}}>
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
 
           {[
@@ -104,10 +106,11 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= FEATURED PROJECTS PREVIEW ================= */}
-        <section className="py-20 px-6 bg-slate-950 text-white">
+      <motion.section className="py-20 px-6 bg-slate-950"
+      initial={{opacity:0, y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration:1}} viewport={{once:true, amount:0.3}}>
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold">
             Our <span className="text-orange-500">Featured Projects</span>
@@ -148,10 +151,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= WHY CHOOSE US ================= */}
-      <section className="py-20 bg-slate-800 px-6">
+      <motion.section className="py-20 bg-slate-800 px-6"
+      initial={{opacity:0, y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration:1}} viewport={{once:true, amount:0.3}}>
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold">
             Why Choose <span className="text-orange-500">SJ Groups India?</span>
@@ -179,10 +183,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CALL TO ACTION ================= */}
-      <section className="py-20 px-6 text-center bg-orange-500 text-white">
+      <motion.section className="py-20 px-6 text-center bg-orange-500 text-white"
+      initial={{opacity:0, y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration:1}} viewport={{once:true, amount:0.3}}>
         <h2 className="text-3xl md:text-4xl font-bold">
           Ready to Start Your Next Project?
         </h2>
@@ -194,7 +199,7 @@ export default function Home() {
             Get a Free Consultation
         </button>
 
-      </section>
+      </motion.section>
     </div>
   );
 }
