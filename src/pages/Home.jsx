@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import project1 from "../assets/images/project1.png";
-import project2 from "../assets/images/project2.png";
-import project3 from "../assets/images/project3.png"; 
+import project1 from "../assets/images/project5.png";
+import project2 from "../assets/images/skysquare-angle.png";
 import video from "../assets/videos/video.mp4";
+import project3 from "../assets/images/infra-site.png";
 
 export default function Home() {
    const projects = [
