@@ -90,7 +90,7 @@ export default function RealEstateLayout() {
         <h2 className="text-3xl font-bold mb-4">
           Invest in Your Future Today
         </h2>
-        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition" onClick={() => window.location.href = '/contact'}>
           Contact Sales Team
         </button>
       </section>

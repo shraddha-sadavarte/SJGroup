@@ -130,7 +130,7 @@ export default function IndustrialLayout() {
         <h2 className="text-3xl font-bold mb-4">
           Build Your Industrial Future With Us
         </h2>
-        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition" onClick={() => window.location.href = '/contact'}>
           Get Industrial Quote
         </button>
       </section>
