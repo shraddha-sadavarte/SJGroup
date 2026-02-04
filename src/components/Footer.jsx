@@ -8,6 +8,7 @@ import {
   Instagram,
 } from "lucide-react";
 import logo from "../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -52,13 +53,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                "Commercial Building",
-                "Residential Projects",
-                "Infrastructure",
-                "Renovations",
+                { name: "Construction", slug: "construction" },
+                { name: "Industrial Plant", slug: "industrial-plant" },
+                { name: "Real Estate", slug: "real-estate" },
+
               ].map((item, i) => (
                 <li key={i}>
-                  <a href="#" className={linkStyle}>{item}</a>
+                  <Link to={`/services/${item.slug}`} className={linkStyle}>{item.name}</Link>
                 </li>
               ))}
             </ul>
@@ -70,11 +71,21 @@ export default function Footer() {
               Company
             </h4>
             <ul className="space-y-3">
-              {["About Us", "Projects", "Careers", "Contact"].map((item, i) => (
-                <li key={i}>
-                  <a href="#" className={linkStyle}>{item}</a>
-                </li>
-              ))}
+              <li>
+                <Link to="/" className={linkStyle}>Home</Link>
+              </li>
+              <li>
+                <Link to="/about" className={linkStyle}>About Us</Link>
+              </li>
+              <li>
+                <Link to="/projects" className={linkStyle}>Projects</Link>
+              </li>
+              <li>
+                <Link to="/services" className={linkStyle}>Services</Link>
+              </li>
+              <li>
+                <Link to="/contact" className={linkStyle}>Contact</Link>
+              </li>
             </ul>
           </div>
 

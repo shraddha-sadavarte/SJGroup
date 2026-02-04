@@ -1,19 +1,17 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import Projects  from "../pages/Projects";
+import { AnimatePresence } from "framer-motion";
+import {motion} from "framer-motion";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [serviceOpen, setServiceOpen] = useState(false);
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Projects", path: "/projects" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-  ];
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   const linkStyle =
     "relative text-gray-200 font-medium transition after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full hover:text-orange-500";
@@ -38,15 +36,51 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={linkStyle}
+            <Link to="/" className={linkStyle}>Home</Link>
+
+            {/*Services deropdown */}
+            <div className="relative group" onMouseEnter={() => setServiceOpen(true)} onMouseLeave={() => setServiceOpen(false)}>
+  
+              {/* Clickable Services Link */}
+              <Link 
+                to="/services" 
+                className={`flex items-center gap-1 ${linkStyle}`}
               >
-                {link.name}
+                Services
+                <ChevronDown size={16} className="mt-[2px]" />
               </Link>
-            ))}
+
+              {/* Dropdown */}
+              <AnimatePresence>
+                {serviceOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 15 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-10 left-0 w-56 bg-slate-800 border border-slate-700 rounded-xl shadow-xl overflow-hidden"
+                  >
+                    {[
+                      "construction",
+                      "industrial-plant",
+                      "real-estate",
+                    ].map((item, i) => (
+                      <Link
+                        key={i}
+                        to={`/services/${item}`}
+                        className="block px-5 py-3 text-gray-300 hover:bg-orange-500 hover:text-white transition"
+                      >
+                        {item.replace("-", " ").toUpperCase()}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+                <Link to="/about" className={linkStyle}>About</Link>
+                <Link to="/projects" className={linkStyle}>Projects</Link>
+                <Link to="/contact" className={linkStyle}>Contact</Link>
+
           </div>
 
           {/* CTA */}
@@ -70,23 +104,97 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-slate-800 border-t border-slate-700">
-            <div className="px-4 py-4 space-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
-                >
-                  {link.name}
-                </Link>
-              ))}
+            <div className="px-4 py-4 space-y-6">
+
+              <Link
+                to="/"
+                onClick={() => setIsOpen(false)}
+                className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
+              >
+                Home
+              </Link>
+
+              {/* Mobile Services Dropdown */}
+              <div>
+                <div className="flex justify-between items-center">
+                  
+                  {/* Clickable main link */}
+                  <Link
+                    to="/services"
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
+                  >
+                    Services
+                  </Link>
+
+                  <button
+                    onClick={() => setServiceOpen(!serviceOpen)}
+                    className="px-3"
+                  >
+                    <ChevronDown
+                      size={18}
+                      className={`transition-transform duration-300 ${
+                        serviceOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+
+                {serviceOpen && (
+                  <div className="ml-6 mt-2 space-y-2">
+                    {[
+                      "construction",
+                      "industrial-plant",
+                      "real-estate",
+                      "hospitality",
+                    ].map((item, i) => (
+                      <Link
+                        key={i}
+                        to={`/services/${item}`}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setServiceOpen(false);
+                        }}
+                        className="block text-gray-300 hover:text-orange-500 transition"
+                      >
+                        {item.replace("-", " ").toUpperCase()}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link
+                to="/about"
+                onClick={() => setIsOpen(false)}
+                className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
+              >
+                About
+              </Link>
+
+              <Link
+                to="/projects"
+                onClick={() => setIsOpen(false)}
+                className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
+              >
+                Projects
+              </Link>
+
+              <Link
+                to="/contact"
+                onClick={() => setIsOpen(false)}
+                className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
+              >
+                Contact
+              </Link>
+
               <button className="w-full mt-3 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition">
                 Get Quote
               </button>
             </div>
           </div>
         )}
+
       </div>
     </nav>
   );
