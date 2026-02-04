@@ -7,17 +7,23 @@ import Home from './pages/Home.jsx'
 import Projects from './pages/Projects.jsx'
 import ProjectDetails from './pages/ProjectDetails.jsx'
 import About from "./pages/About.jsx"
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import Services from './pages/Services.jsx';
+import ServiceDetail from "./pages/ServiceDetail.jsx"
 
 function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-slate-950 text-white">
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/projects' element={<Projects />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path='/about' element={<About />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/services/:service' element={<ServiceDetail />} />
         </Routes>
         <Footer />
       </div>

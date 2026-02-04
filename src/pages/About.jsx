@@ -38,21 +38,81 @@ export default function About() {
     <div className="relative w-full bg-slate-950 text-white overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="py-28 px-6 text-center">
-        <motion.h1
+      <motion.section className="py-28 px-6 text-center "  
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}>
+        <h1
           className="text-5xl md:text-6xl font-extrabold"
         >
           About <span className="text-orange-500">SJ Groups India</span>
-        </motion.h1>
+        </h1>
 
         <p className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg">
           Delivering excellence in infrastructure & interior solutions for over 15 years.
         </p>
-      </section>
+      </motion.section>
+
+      {/* ================= VISION & MISSION ================= */}
+        <motion.section
+        className="py-24 px-6 bg-gradient-to-b from-slate-950 to-slate-900"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        >
+        <div className="max-w-6xl mx-auto text-center">
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Our <span className="text-orange-500">Vision & Mission</span>
+            </h2>
+
+            <p className="text-gray-400 mb-16">
+            Trust | Affinity | Strength
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-10">
+
+            {[
+                {
+                title: "Trust",
+                desc: "We believe in approachability and open communication with our clients and partners."
+                },
+                {
+                title: "Affinity",
+                desc: "We develop relationships, not just projects — building long-term partnerships."
+                },
+                {
+                title: "Strength",
+                desc: "Capacity to bring dreams into reality with expertise, dedication, and execution power."
+                }
+            ].map((item, index) => (
+                <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                className="group relative p-8 rounded-2xl 
+                backdrop-blur-lg bg-white/5 
+                border border-white/10 
+                shadow-xl overflow-hidden transition-all duration-500"
+                >
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/10 transition-all duration-500"></div>
+
+                <h3 className="text-2xl font-bold text-orange-500 relative z-10">
+                    {item.title}
+                </h3>
+
+                <p className="mt-4 text-gray-300 relative z-10">
+                    {item.desc}
+                </p>
+                </motion.div>
+            ))}
+
+            </div>
+        </div>
+        </motion.section>
+
 
       {/* ================= STATS ================= */}
       <motion.section className="py-20 px-6" initial={{opacity:0, y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration:1}} viewport={{once:true, amount:0.3}} >
