@@ -5,6 +5,7 @@ import project2 from "../assets/images/skysquare-angle.png";
 import video from "../assets/videos/video.mp4";
 import project3 from "../assets/images/infra-site.png";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -26,7 +27,21 @@ export default function Home() {
       image: project3,
     },
   ];
+  useEffect(() => {
+  document.title = "SJ Group India | Construction & Infrastructure Company in Pune";
+
+  const meta = document.querySelector("meta[name='description']");
+  if (meta) {
+    meta.setAttribute(
+      "content",
+      "SJ Group India delivers premium construction, residential, commercial and industrial infrastructure projects across Pune with excellence and innovation."
+    );
+  }
+}, []);
+
   return (
+    <>
+ 
     <div className="w-full">
 
       {/* ================= HERO SECTION ================= */}
@@ -207,5 +222,6 @@ export default function Home() {
 
       </motion.section>
     </div>
+    </>
   );
 }
