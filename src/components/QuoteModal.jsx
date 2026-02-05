@@ -44,7 +44,7 @@ export default function QuoteModal({ isOpen, onClose }) {
 
   emailjs.send(
   import.meta.env.VITE_SERVICE_ID,
-  import.meta.env.VITE_TEMPLATE_ID,
+  import.meta.env.VITE_QUOTA_TEMPLATE_ID,
   form,
   import.meta.env.VITE_PUBLIC_KEY
 )
