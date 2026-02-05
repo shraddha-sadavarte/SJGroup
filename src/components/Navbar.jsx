@@ -39,6 +39,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className={linkStyle}>Home</Link>
+            <Link to="/about" className={linkStyle}>About</Link>
 
             {/*Services deropdown */}
             <div className="relative group" onMouseEnter={() => setServiceOpen(true)} onMouseLeave={() => setServiceOpen(false)}>
@@ -79,7 +80,7 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-                <Link to="/about" className={linkStyle}>About</Link>
+                
                 <Link to="/projects" className={linkStyle}>Projects</Link>
                 <Link to="/contact" className={linkStyle}>Contact</Link>
 
@@ -117,6 +118,14 @@ export default function Navbar() {
                 className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
               >
                 Home
+              </Link>
+              
+              <Link
+                to="/about"
+                onClick={() => setIsOpen(false)}
+                className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
+              >
+                About
               </Link>
 
               {/* Mobile Services Dropdown */}
@@ -168,13 +177,6 @@ export default function Navbar() {
                 )}
               </div>
 
-              <Link
-                to="/about"
-                onClick={() => setIsOpen(false)}
-                className="block text-gray-200 hover:text-orange-500 px-3 py-2 rounded-md transition"
-              >
-                About
-              </Link>
 
               <Link
                 to="/projects"
