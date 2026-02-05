@@ -74,7 +74,7 @@ export default function RealEstateLayout() {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-slate-900 p-10 rounded-2xl hover:scale-105 transition"
+              className="bg-slate-900 p-10 rounded-2xl hover:scale-105 cursor-pointer transition"
             >
               <h3 className="text-4xl font-bold text-orange-500">
                 {item.number}

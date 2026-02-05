@@ -36,19 +36,18 @@ export default function Services() {
         <p className="text-gray-400 mb-16">
           Delivering excellence across multiple industries.
         </p>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services.map((service, index) => (
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {services.map((service, index) => (
             <motion.div
             key={index}
             whileHover={{ y: -10 }}
-            className="group bg-slate-900 rounded-2xl overflow-hidden shadow-xl flex flex-col"
+            className="group bg-slate-900 rounded-2xl overflow-hidden shadow-xl flex flex-col min-h-[480px]"
             >
             <div className="overflow-hidden">
                 <img
                 src={service.image}
                 alt=""
-                className="h-56 w-full object-cover group-hover:scale-110 transition duration-500"
+                className="h-56 md:h-64 lg:h-56 w-full object-cover group-hover:scale-110 transition duration-500"
                 />
             </div>
 
@@ -69,8 +68,7 @@ export default function Services() {
                 </Link>
             </div>
             </motion.div>
-
-          ))}
+        ))}
         </div>
       </div>
     </div>

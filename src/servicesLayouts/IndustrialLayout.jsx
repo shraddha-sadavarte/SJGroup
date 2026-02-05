@@ -94,7 +94,7 @@ export default function IndustrialLayout() {
               <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
-                className="bg-slate-800 p-8 rounded-2xl shadow-xl"
+                className="bg-slate-800 p-8 rounded-2xl shadow-xl hover:cursor-pointer"
               >
                 <h3 className="text-xl font-semibold mb-4">
                   {item.title}
@@ -108,7 +108,7 @@ export default function IndustrialLayout() {
 
       {/* ===== IMAGE GALLERY ===== */}
       <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 hover:cursor-pointer">
           {[industrial1, industrial2, industrial3].map((img, i) => (
             <motion.div
               key={i}

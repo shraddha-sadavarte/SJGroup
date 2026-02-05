@@ -4,8 +4,10 @@ import project1 from "../assets/images/project5.png";
 import project2 from "../assets/images/skysquare-angle.png";
 import video from "../assets/videos/video.mp4";
 import project3 from "../assets/images/infra-site.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
    const projects = [
     {
       title: "Commercial Complex",
@@ -47,6 +49,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold 
+          leading-tight md:leading-[1.2] pb-2
           bg-clip-text text-transparent 
           bg-gradient-to-r from-white via-gray-200 to-gray-400"
         >
@@ -98,7 +101,7 @@ export default function Home() {
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              className="bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+              className="bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
             >
               <h2 className="text-4xl font-bold text-orange-500">
                 {item.number}
@@ -196,7 +199,9 @@ export default function Home() {
           Partner with SJ Group India for reliable and innovative solutions.
         </p>
 
-        <button className="mt-8 bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+        <button 
+        onClick={() => navigate("/contact")}
+        className="mt-8 bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
             Get a Free Consultation
         </button>
 

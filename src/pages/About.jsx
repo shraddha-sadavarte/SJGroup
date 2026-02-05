@@ -46,7 +46,7 @@ export default function About() {
         <h1
           className="text-5xl md:text-6xl font-extrabold"
         >
-          About <span className="text-orange-500">SJ Groups India</span>
+          About <span className="text-orange-500">SJ Group India</span>
         </h1>
 
         <p className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg">
@@ -158,7 +158,7 @@ export default function About() {
           {[
             { year: "2009", text: "Company Founded with a Vision of Excellence" },
             { year: "2015", text: "Expanded to Commercial Infrastructure" },
-            { year: "2020", text: "Crossed 1000+ Successful Projects" },
+            { year: "2020", text: "Crossed 100+ Successful Projects" },
             { year: "2024", text: "Recognized Industry Leader in Innovation" },
           ].map((item, index) => (
             <motion.div
@@ -193,8 +193,8 @@ export default function About() {
 
           {[
             { skill: "Interior Design", value: 95 },
-            { skill: "Infrastructure Development", value: 90 },
-            { skill: "Project Management", value: 92 },
+            { skill: "Infrastructure Development", value: 97 },
+            { skill: "Project Management", value: 99 },
             { skill: "Quality Assurance", value: 98 },
           ].map((item, index) => (
             <div key={index}>

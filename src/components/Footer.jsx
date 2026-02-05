@@ -6,6 +6,7 @@ import {
   Twitter,
   Facebook,
   Instagram,
+  Youtube,
 } from "lucide-react";
 import logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
@@ -34,15 +35,15 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-4">
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="p-2 rounded-lg bg-slate-800 hover:bg-orange-500 hover:text-white transition"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
+              <Link to="facebook.com" className="group p-2 rounded-lg border border-[#1877F2] transition duration-300 hover:bg-[#1877F2]">
+                <Facebook size={18} className="text-[#1877F2] group-hover:text-white transition duration-300"/>
+              </Link>
+              <Link to="instagram.com" className="group p-2 rounded-lg border border-[#e440d1] transition duration-300 hover:bg-[#e440d1]">
+                <Instagram size={18} className="text-[#e440d1] group-hover:text-white transition duration-300" />
+              </Link>
+              <Link to="youtube.com" className="group p-2 rounded-lg border border-[#FF0000] transition duration-300 hover:bg-[#FF0000]">
+                <Youtube size={18} className="text-[#FF0000] group-hover:text-white transition duration-300" />
+              </Link>
             </div>
           </div>
 
@@ -116,15 +117,29 @@ export default function Footer() {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="border-t border-slate-700 pt-6 flex flex-col md:flex-row justify-between gap-4">
-          <p className="text-sm text-gray-400">
-            © {currentYear} SJ GROUPS INDIA. All rights reserved.
-          </p>
+        <div className="border-t border-slate-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
 
+          {/* Left Side */}
+          <div className="text-sm text-gray-400 text-center md:text-left">
+            © {currentYear} SJ GROUP INDIA. All rights reserved.
+            <span className="block md:inline md:ml-2">
+              | Designed & Developed by{" "}
+              <Link
+                to="https://ilitecode.com/"   
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-500 hover:text-orange-400 font-medium transition"
+              >
+                LiteCode Software Pvt.Ltd
+              </Link>
+            </span>
+          </div>
+
+          {/* Right Side Links */}
           <ul className="flex gap-6 text-sm">
             {["Privacy Policy", "Terms of Service", "Sitemap"].map((item, i) => (
               <li key={i}>
-                <a href="#" className={linkStyle}>{item}</a>
+                <a href="/" className={linkStyle}>{item}</a>
               </li>
             ))}
           </ul>
