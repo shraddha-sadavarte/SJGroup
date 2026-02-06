@@ -32,7 +32,7 @@ export default function RealEstateLayout() {
       </section>
 
       {/* ===== FEATURE SECTION ===== */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 cursor-pointer">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
 
           {[real1, real2, real3].map((img, i) => (
@@ -61,7 +61,7 @@ export default function RealEstateLayout() {
       </section>
 
       {/* ===== INVESTMENT STATS ===== */}
-      <section className="py-20 bg-slate-800 px-6 text-center">
+      <section className="py-20 bg-slate-800 px-6 text-center cursor-pointer">
         <h2 className="text-4xl font-bold mb-14">
           Investment <span className="text-orange-500">Highlights</span>
         </h2>
@@ -90,7 +90,7 @@ export default function RealEstateLayout() {
         <h2 className="text-3xl font-bold mb-4">
           Invest in Your Future Today
         </h2>
-        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition" onClick={() => window.location.href = '/contact'}>
+        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold cursor-pointer hover:bg-gray-100 transition" onClick={() => window.location.href = '/contact'}>
           Contact Sales Team
         </button>
       </section>

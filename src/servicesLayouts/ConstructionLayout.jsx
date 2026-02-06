@@ -28,7 +28,7 @@ export default function ConstructionLayout() {
 
       {/* ================= ABOUT SECTION ================= */}
       <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center cursor-pointer">
 
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -80,7 +80,7 @@ export default function ConstructionLayout() {
 
       {/* ================= PROJECT GALLERY ================= */}
       <section className="py-20 px-6 bg-slate-900">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto cursor-pointer">
           <h2 className="text-center text-4xl font-bold mb-14">
             Recent <span className="text-orange-500">Projects</span>
           </h2>
@@ -129,7 +129,7 @@ export default function ConstructionLayout() {
         <h2 className="text-3xl font-bold mb-4">
           Let’s Build Your Dream Project
         </h2>
-        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition" onClick={() => window.location.href = '/contact'}>
+        <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold cursor-pointer hover:bg-gray-100 transition" onClick={() => window.location.href = '/contact'}>
           Request Consultation
         </button>
       </section>

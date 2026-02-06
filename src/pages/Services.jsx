@@ -41,13 +41,13 @@ export default function Services() {
             <motion.div
             key={index}
             whileHover={{ y: -10 }}
-            className="group bg-slate-900 rounded-2xl overflow-hidden shadow-xl flex flex-col min-h-[480px]"
+            className="group bg-slate-900 rounded-2xl overflow-hidden shadow-xl flex flex-col min-h-[430px]"
             >
             <div className="overflow-hidden">
                 <img
                 src={service.image}
                 alt=""
-                className="h-56 md:h-64 lg:h-56 w-full object-cover group-hover:scale-110 transition duration-500"
+                className="h-60 md:h-64 lg:h-56 w-full object-cover group-hover:scale-110 transition duration-500"
                 />
             </div>
 
