@@ -120,9 +120,9 @@ export default function About() {
 
           {[
             { end: 15, suffix: "+", label: "Years Experience" },
-            { end: 1500, suffix: "+", label: "Successful Projects" },
-            { end: 100, suffix: "+", label: "Professional Experts" },
-            { end: 300, suffix: "+", label: "Happy Customers" },
+            { end: 250, suffix: "+", label: "Successful Projects" },
+            { end: 120, suffix: "+", label: "Professional Experts" },
+            { end: 98, suffix: "%", label: "Happy Customers" },
           ].map((item, index) => (
             <motion.div
               key={index}

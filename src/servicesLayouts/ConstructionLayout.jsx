@@ -107,7 +107,7 @@ export default function ConstructionLayout() {
       <section className="py-20 px-6 text-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
           {[
-            { number: "500+", label: "Projects Completed" },
+            { number: "250+", label: "Projects Completed" },
             { number: "15+", label: "Years Experience" },
             { number: "98%", label: "Client Satisfaction" },
           ].map((item, i) => (
